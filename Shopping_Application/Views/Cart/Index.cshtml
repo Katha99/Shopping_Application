@@ -1,7 +1,4 @@
 ﻿
-@{
-    Layout = null;
-}
 @using Shopping_Application.Models
 
 <!DOCTYPE html>
@@ -33,7 +30,7 @@
                 <td><img src="~/Content/Images/@item.Product.Photo" width="60" /></td>
                 <td>@item.Product.Price</td>
                 <td>@item.Quantity</td>
-                <td>@(item.Product:price * item.Quantity)</td>
+                <td>@(item.Product.Price * item.Quantity)</td>
             </tr>
         }
         <tr>
