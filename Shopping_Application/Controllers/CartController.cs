@@ -1,8 +1,10 @@
 ﻿using Shopping_Application.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
+using System.Web.DynamicData;
 using System.Web.Mvc;
 
 namespace Shopping_Application.Controllers
@@ -15,13 +17,19 @@ namespace Shopping_Application.Controllers
             return View();
         }
 
-        public ActionResult Buy(string id)
+        public ActionResult Buy(int id)
         {
-            ProductModel productModel = new ProductModel();
+            ProductDBContext db = new ProductDBContext();
+            var productDB = from e in db.Products
+                            where e.Id == id
+                            select e;
+
+            var product = productDB.SingleOrDefault();
+
             if (Session["cart"] == null)
             {
                 List<Item> cart = new List<Item>();
-                cart.Add(new Item { Product = productModel.find(id), Quantity = 1 });
+                cart.Add(new Item { Product = product, Quantity = 1 });
                 Session["cart"] = cart;
             }
             else
@@ -34,14 +42,14 @@ namespace Shopping_Application.Controllers
                 }
                 else
                 {
-                    cart.Add(new Item { Product = productModel.find(id), Quantity = 1 });
+                    cart.Add(new Item { Product = product, Quantity = 1 });
                 }
                 Session["cart"] = cart;
             }
             return RedirectToAction("Index");
         }
 
-        public ActionResult Remove(string id)
+        public ActionResult Remove(int id)
         {
             List<Item> cart = (List<Item>)Session["cart"];
             int index = isExist(id);
@@ -50,7 +58,7 @@ namespace Shopping_Application.Controllers
             return RedirectToAction("Index");
         }
 
-        private int isExist(string id)
+        private int isExist(int id)
         {
             List<Item> cart = (List<Item>)Session["cart"];
             for( int i = 0; i < cart.Count; i++ )

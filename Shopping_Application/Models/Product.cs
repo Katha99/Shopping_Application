@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace Shopping_Application.Models
 {
     public class Product
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
+        public int Id { get; set; }
+        public string Titel { get; set; }
         public double Price { get; set; }
         public string Photo { get; set; }
+
+    }
+
+    public class ProductDBContext : DbContext
+    {
+        public ProductDBContext()
+        { }
+        public DbSet<Product> Products { get; set; }
     }
 
 }
