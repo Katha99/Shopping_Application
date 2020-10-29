@@ -12,7 +12,7 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Titel = c.String(),
                         Price = c.Double(nullable: false),
                         Photo = c.String(),
                     })

@@ -143,6 +143,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\01.jpeg" />
+    <Content Include="Content\Images\02.jpeg" />
+    <Content Include="Content\Images\03.jpeg" />
+    <Content Include="Content\Images\04.jpeg" />
+    <Content Include="Content\Images\05.jpeg" />
+    <Content Include="Content\Images\06.jpeg" />
+    <Content Include="Content\Images\07.jpeg" />
+    <Content Include="Content\Images\08.jpeg" />
+    <Content Include="Content\Images\09.jpeg" />
+    <Content Include="Content\Images\10.jpeg" />
+    <Content Include="Content\Images\11.jpeg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
