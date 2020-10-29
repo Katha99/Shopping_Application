@@ -22,56 +22,65 @@ namespace Shopping_Application.Controllers
             return View(products);
         }
 
-
-
-        /*// GET: Product/Create
-        public ActionResult Create()
+        public ActionResult DetailView(int id)
         {
-            return View();
-        }
+            var product = from e in db.Products
+                           where e.Id == id
+                           select e;
 
-        // POST: Product/Create
-        [HttpPost]
-        public ActionResult Create(Product product)
-        {
-            try
-            {
-                db.Products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Product/Edit/5
-        public ActionResult Edit(int id)
-        {
-            var product = db.Products.Single(m => m.Id == id);
+            Product product1 = (Product)product.FirstOrDefault();
+            ViewBag.product = product1;
             return View(product);
         }
 
-        // POST: Employee/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                var product = db.Products.Single(m => m.Id == id);
-                if (TryUpdateModel(product))
-                {
-                    //To Do:- database code
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                return View(product);
-            }
-            catch
+            /*// GET: Product/Create
+            public ActionResult Create()
             {
                 return View();
             }
-        }*/
-    }
+
+            // POST: Product/Create
+            [HttpPost]
+            public ActionResult Create(Product product)
+            {
+                try
+                {
+                    db.Products.Add(product);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+
+            // GET: Product/Edit/5
+            public ActionResult Edit(int id)
+            {
+                var product = db.Products.Single(m => m.Id == id);
+                return View(product);
+            }
+
+            // POST: Employee/Edit/5
+            [HttpPost]
+            public ActionResult Edit(int id, FormCollection collection)
+            {
+                try
+                {
+                    var product = db.Products.Single(m => m.Id == id);
+                    if (TryUpdateModel(product))
+                    {
+                        //To Do:- database code
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    return View(product);
+                }
+                catch
+                {
+                    return View();
+                }
+            }*/
+        }
 }

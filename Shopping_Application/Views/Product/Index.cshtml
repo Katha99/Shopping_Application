@@ -12,27 +12,23 @@
 <body>
 
     <h3>Products List</h3>
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Titel</th>
-            <th>Photo</th>
-            <th>Price</th>
-            <th>Buy</th>
-        </tr>
-        @foreach (Product product in ViewBag.products)
-        {
-            <tr>
-                <td>@product.Id</td>
-                <td>@product.Titel</td>
-                <td><img src="~/Content/Images/@product.Photo" width="60" /></td>
-                <td>@product.Price</td>
-                <td align="center">
-                    <a href="@Url.Action("Buy", "Cart", new { id = product.Id })">Buy Now</a>
-                </td>
-            </tr>
-        }
-    </table>
+    @foreach (Product product in ViewBag.products)
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <a href="@Url.Action("DetailView", "Product", new { id = product.Id })"><img src="~/Content/Images/@product.Photo" width="75" /></a>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("DetailView", "Product", new { id = product.Id })"><p>@product.Titel</p></a>
+            </div>
+            <div class="col-md-2">
+                <p>@product.Price</p>
+            </div>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("Buy", "Cart", new { id = product.Id })">Buy Now</a></p>
+            </div>
+        </div>
+     }
 
 </body>
 </html>
