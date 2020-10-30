@@ -12,7 +12,8 @@ namespace Shopping_Application.Models
         public string Titel { get; set; }
         public double Price { get; set; }
         public string Photo { get; set; }
-
+        public string Content { get; set; }
+        public string Author { get; set; }
     }
 
     public class ProductDBContext : DbContext

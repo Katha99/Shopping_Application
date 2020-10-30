@@ -17,16 +17,13 @@
                     <h2>Products List</h2>
                 </td>
                 <td>
-                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                        <button type="button" class="btn btn-primary">Sortieren nach</button>
-                        <div class="btn-group show" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
-                            <div class="dropdown-menu show" aria-labelledby="btnGroupDrop1" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 48px, 0px);" x-placement="bottom-start">
-                                <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 1 })">Titel A-Z</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 2 })">Titel Z-A</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 3 })">Preis: aufsteigend</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 4 })">Preis: absteigend</a>
-                            </div>
+                    <div class="nav-item dropdown show">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sortieren nach</a>
+                        <div class="dropdown-menu show" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 1 })">Titel A-Z</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 2 })">Titel Z-A</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 3 })">Preis: aufsteigend</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 4 })">Preis: absteigend</a>
                         </div>
                     </div>
                 </td>
