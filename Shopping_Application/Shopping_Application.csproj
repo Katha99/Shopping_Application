@@ -134,7 +134,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202010291223408_InitialCreate.cs" />
-    <Compile Include="Migrations\202010291223408_InitialCreate.designer.cs">
+    <Compile Include="Migrations\202010291223408_InitialCreate.Designer.cs">
       <DependentUpon>202010291223408_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
