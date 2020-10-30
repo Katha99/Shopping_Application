@@ -10,26 +10,54 @@
     <title>Index</title>
 </head>
 <body>
-
-    <h3>Products List</h3>
-    @foreach (Product product in ViewBag.products)
-    {
-        <div class="row">
-            <div class="col-md-4">
-                <a href="@Url.Action("DetailView", "Product", new { id = product.Id })"><img src="~/Content/Images/@product.Photo" width="75" /></a>
-            </div>
-            <div class="col-md-4">
-                <a href="@Url.Action("DetailView", "Product", new { id = product.Id })"><p>@product.Titel</p></a>
-            </div>
-            <div class="col-md-2">
-                <p>@product.Price</p>
-            </div>
-            <div class="col-md-2">
-                <p><a href="@Url.Action("Buy", "Cart", new { id = product.Id })">Buy Now</a></p>
-            </div>
-        </div>
-     }
-
+    <div class="col">
+        <table class="table table-hover">
+            <tr class="table-light">
+                <td>
+                    <h2>Products List</h2>
+                </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-primary">Sortieren nach</button>
+                        <div class="btn-group show" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
+                            <div class="dropdown-menu show" aria-labelledby="btnGroupDrop1" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 48px, 0px);" x-placement="bottom-start">
+                                <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 1 })">Titel A-Z</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 2 })">Titel Z-A</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 3 })">Preis: aufsteigend</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 4 })">Preis: absteigend</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+        </table>
+        
+    </div>
+    <div class="col">
+        <table class="table table-hover">
+            @foreach (Product product in ViewBag.products)
+            {
+                <tr class="table-light">
+                    <td>
+                        <a href="@Url.Action("DetailView", "Product", new { id = product.Id })"><img src="~/Content/Images/@product.Photo" width="75" /></a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("DetailView", "Product", new { id = product.Id })"><p class="lead">@product.Titel</p></a>
+                    </td>
+                    <td>
+                        <p class="text-warning">@product.Price</p>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning disabled">
+                            <a href="@Url.Action("Buy", "Cart", new { id = product.Id })">Buy Now</a>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </table>
+</div>
 </body>
 </html>
 

@@ -13,13 +13,48 @@ namespace Shopping_Application.Controllers
         private ProductDBContext db = new ProductDBContext();
 
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index( int typeSort = 1 )
         {
-            var products = from e in db.Products
-                           orderby e.Id
-                           select e;
-            ViewBag.products = products;
-            return View(products);
+            if (typeSort == 1)
+            {
+                var products = from e in db.Products
+                               orderby e.Titel
+                               select e;
+                ViewBag.products = products;
+                return View(products);
+            }
+            else if (typeSort == 2)
+            {
+                var products = from e in db.Products
+                               orderby e.Titel descending
+                               select e;
+                ViewBag.products = products;
+                return View(products);
+            }
+            else if (typeSort == 3)
+            {
+                var products = from e in db.Products
+                               orderby e.Price
+                               select e;
+                ViewBag.products = products;
+                return View(products);
+            }
+            else if (typeSort == 4)
+            {
+                var products = from e in db.Products
+                               orderby e.Price descending
+                               select e;
+                ViewBag.products = products;
+                return View(products);
+            }
+            else
+            {
+                var products = from e in db.Products
+                               orderby e.Id
+                               select e;
+                ViewBag.products = products;
+                return View(products);
+            }
         }
 
         public ActionResult DetailView(int id)
@@ -32,6 +67,7 @@ namespace Shopping_Application.Controllers
             ViewBag.product = product1;
             return View(product);
         }
+
 
             /*// GET: Product/Create
             public ActionResult Create()

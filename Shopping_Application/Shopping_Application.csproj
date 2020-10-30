@@ -143,6 +143,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lux.css" />
     <Content Include="Content\Images\01.jpeg" />
     <Content Include="Content\Images\02.jpeg" />
     <Content Include="Content\Images\03.jpeg" />
