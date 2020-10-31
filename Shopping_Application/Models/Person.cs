@@ -42,10 +42,10 @@ namespace Shopping_Application.Models
 
     }
 
-    public class PersonDBContext : DbContext
+    /*public class PersonDBContext : DbContext
     {
         public PersonDBContext()
         { }
         public DbSet<Person> Persons { get; set; }
-    }
+    }*/
 }

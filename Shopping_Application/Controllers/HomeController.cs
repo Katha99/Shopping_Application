@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Shopping_Application.Models;
+using DataLibrary;
+using static DataLibrary.Logic.PersonProcessor;
 
 namespace Shopping_Application.Controllers
 {
@@ -37,12 +39,13 @@ namespace Shopping_Application.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignUp(Person person)
+        public ActionResult SignUp(Person model)
         {
             ViewBag.Message = "The sign up page.";
 
             if (ModelState.IsValid)
             {
+                int recordsCreated = CreatePerson(model.FirstName, model.LastName, model.EmailAddress, model.Password);
                 return RedirectToAction("Index");
             }
 

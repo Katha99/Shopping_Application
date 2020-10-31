@@ -4,67 +4,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DataLibrary;
+using static DataLibrary.Logic.ProductProcessor;
 
 
 namespace Shopping_Application.Controllers
 {
     public class ProductController : Controller
     {
-        private ProductDBContext db = new ProductDBContext();
-
         // GET: Product
-        public ActionResult Index( int typeSort = 1 )
+        public ActionResult Index( string typeSort = "Titel ASC" )
         {
-            if (typeSort == 1)
+            var data = LoadSortedProduct( typeSort );
+            List<Product> products = new List<Product>();
+
+            foreach (var row in data)
             {
-                var products = from e in db.Products
-                               orderby e.Titel
-                               select e;
-                ViewBag.products = products;
-                return View(products);
+                products.Add(new Product
+                {
+                    Id = row.Id,
+                    Titel = row.Titel,
+                    Price = row.Price,
+                    Photo = row.Photo,
+                    Content = row.Content,
+                    Author = row.Author
+                });
             }
-            else if (typeSort == 2)
-            {
-                var products = from e in db.Products
-                               orderby e.Titel descending
-                               select e;
-                ViewBag.products = products;
-                return View(products);
-            }
-            else if (typeSort == 3)
-            {
-                var products = from e in db.Products
-                               orderby e.Price
-                               select e;
-                ViewBag.products = products;
-                return View(products);
-            }
-            else if (typeSort == 4)
-            {
-                var products = from e in db.Products
-                               orderby e.Price descending
-                               select e;
-                ViewBag.products = products;
-                return View(products);
-            }
-            else
-            {
-                var products = from e in db.Products
-                               orderby e.Id
-                               select e;
-                ViewBag.products = products;
-                return View(products);
-            }
+            ViewBag.products = products;
+            return View(products);
         }
 
         public ActionResult DetailView(int id)
         {
-            var product = from e in db.Products
-                           where e.Id == id
-                           select e;
+            var data = LoadOneProduct(id);
+            Product product = new Product
+            {
+                Id = data.First().Id,
+                Titel = data.First().Titel,
+                Price = data.First().Price,
+                Photo = data.First().Photo,
+                Content = data.First().Content,
+                Author = data.First().Author
+            };
 
-            Product product1 = (Product)product.FirstOrDefault();
-            ViewBag.product = product1;
+            ViewBag.product = product;
             return View(product);
         }
 

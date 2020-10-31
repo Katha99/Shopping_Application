@@ -133,11 +133,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010291223408_InitialCreate.cs" />
-    <Compile Include="Migrations\202010291223408_InitialCreate.Designer.cs">
-      <DependentUpon>202010291223408_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Product.cs" />
@@ -213,9 +208,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202010291223408_InitialCreate.resx">
-      <DependentUpon>202010291223408_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
+      <Project>{06646184-2b7c-4cba-8f48-2836ec31c32d}</Project>
+      <Name>DataLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,11 +1,11 @@
 ﻿using Shopping_Application.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.DynamicData;
 using System.Web.Mvc;
+using static DataLibrary.Logic.ProductProcessor;
 
 namespace Shopping_Application.Controllers
 {
@@ -19,12 +19,15 @@ namespace Shopping_Application.Controllers
 
         public ActionResult Buy(int id)
         {
-            ProductDBContext db = new ProductDBContext();
-            var productDB = from e in db.Products
-                            where e.Id == id
-                            select e;
-
-            var product = productDB.SingleOrDefault();
+            var data = LoadOneProduct(id);
+            Product product = new Product
+            {
+                Titel = data.First().Titel,
+                Price = data.First().Price,
+                Photo = data.First().Photo,
+                Content = data.First().Content,
+                Author = data.First().Author
+            };
 
             if (Session["cart"] == null)
             {

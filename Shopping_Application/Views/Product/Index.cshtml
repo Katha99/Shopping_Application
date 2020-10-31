@@ -20,10 +20,10 @@
                     <div class="nav-item dropdown show">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sortieren nach</a>
                         <div class="dropdown-menu show" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
-                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 1 })">Titel A-Z</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 2 })">Titel Z-A</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 3 })">Preis: aufsteigend</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = 4 })">Preis: absteigend</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = "Titel ASC" })">Titel A-Z</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = "Titel DESC" })">Titel Z-A</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = "Price ASC" })">Preis: aufsteigend</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = "Price DESC" })">Preis: absteigend</a>
                         </div>
                     </div>
                 </td>
