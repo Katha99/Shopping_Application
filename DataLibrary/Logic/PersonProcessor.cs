@@ -26,10 +26,11 @@ namespace DataLibrary.Logic
             return SQLDataAccess.SaveData(sql, data);
         }
 
-        public static List<Person>  LoadPerson()
+        public static List<Person>  LoadPerson(string emailAddress)
         {
-            string sql = @"select FirstName, LastName, EmailAddress
-                            from dbo.Persons;";
+            string sql = @"select Id, FirstName, LastName, EmailAddress, Password
+                            from dbo.Persons
+                            where EmailAddress = '" + emailAddress + "';";
             return SQLDataAccess.LoadData<Person>(sql);
         }
     }

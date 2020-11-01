@@ -19,7 +19,8 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-
+        <p class="text-warning">@ViewBag.texts</p>
+        <br />
         <div class="form-horizontal">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 

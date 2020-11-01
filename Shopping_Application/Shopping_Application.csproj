@@ -195,6 +195,7 @@
     <Content Include="Views\SignIn\Register.cshtml" />
     <Content Include="Views\SignIn\Index.cshtml" />
     <Content Include="Views\SignIn\LogIn.cshtml" />
+    <Content Include="Views\Product\UserView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
