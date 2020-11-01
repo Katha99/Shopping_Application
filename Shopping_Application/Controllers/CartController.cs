@@ -22,6 +22,7 @@ namespace Shopping_Application.Controllers
             var data = LoadOneProduct(id);
             Product product = new Product
             {
+                Id = data.First().Id,
                 Titel = data.First().Titel,
                 Price = data.First().Price,
                 Photo = data.First().Photo,
@@ -66,7 +67,7 @@ namespace Shopping_Application.Controllers
             List<Item> cart = (List<Item>)Session["cart"];
             for( int i = 0; i < cart.Count; i++ )
             {
-                if (cart[i].Product.Id.Equals(id))
+                if (cart[i].Product.Id == id)
                     return i;
             }
             return -1;

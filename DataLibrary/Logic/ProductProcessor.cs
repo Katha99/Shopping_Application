@@ -1,4 +1,4 @@
-﻿LogIn works, using DataLibrary.DataAccess;
+﻿using DataLibrary.DataAccess;
 using DataLibrary.Models;
 using System;
 using System.Collections.Generic;

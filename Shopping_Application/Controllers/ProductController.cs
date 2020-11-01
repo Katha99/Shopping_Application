@@ -50,18 +50,5 @@ namespace Shopping_Application.Controllers
             ViewBag.product = product;
             return View(product);
         }
-
-
-        [HttpPost]
-        public ActionResult UserView(Product model)
-        {
-            CreateProduct(model.Titel, model.Price, model.Photo, model.Content, model.Author);
-            return View();
-        }
-
-        public ActionResult UserView()
-        {
-            return View();
-        }
     }
 }

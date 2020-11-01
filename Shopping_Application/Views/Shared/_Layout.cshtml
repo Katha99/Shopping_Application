@@ -33,17 +33,35 @@
                     <a class="nav-link">@Html.ActionLink("Kontakt", "Contact", "Home")</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            <a href="@Url.Action("Index", "Cart")">
-                <img src="~/Content/PicturesWebPage/cart.jpg" width="30" />
-            </a>
-            <a href="@Url.Action("Index", "SignIn")">
-                <img src="~/Content/PicturesWebPage/profile.png" width="30" />
-            </a>
-            
+            <ul class="navbar-nav mr-auto" aign="center">
+                <li>
+                    @if (Session["userId"] != null)
+                    {
+                        <p>Hallo @Session["userFirstName"] @Session["userLastName"]</p>
+                    }
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto" aign="right">
+                <li>
+                    <a href="@Url.Action("Index", "Cart")">
+                        <img src="~/Content/PicturesWebPage/cart.jpg" width="30" />
+                    </a>
+                </li>
+                <li>
+                    @if (Session["userId"] == null)
+                    {
+                        <a href="@Url.Action("Index", "SignIn")">
+                            <img src="~/Content/PicturesWebPage/profile.png" width="30" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("LogOut", "SignIn")">
+                            <img src="~/Content/PicturesWebPage/LogOut.png" width="30" />
+                        </a>
+                    }
+                </li>
+            </ul>
         </div>
     </nav>
 

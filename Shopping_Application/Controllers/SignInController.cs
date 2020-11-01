@@ -13,16 +13,7 @@ namespace Shopping_Application.Views.SignIn
         // GET: SignIn
         public ActionResult Index()
         {
-            if (Session["user"] == null)
-                return View();
-
-            var data = Session["user"];
-            int id = (int)data;
-
-            if (id == 2)
-                return RedirectToAction("UserView", "Product");
-            else
-                return RedirectToAction("Index", "Home");
+            return View();
         }
 
         public ActionResult LogIn()
@@ -33,6 +24,14 @@ namespace Shopping_Application.Views.SignIn
         public ActionResult Register()
         {
             return View();
+        }
+
+        public ActionResult LogOut()
+        {
+            Session["userId"] = null;
+            Session["userFirstName"] = null;
+            Session["userLastName"] = null;
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -76,7 +75,9 @@ namespace Shopping_Application.Views.SignIn
 
                 if(model.EmailAddress == person[0].EmailAddress && model.Password == person[0].Password)
                 {
-                    Session["user"] = person[0].Id;
+                    Session["userId"] = person[0].Id;
+                    Session["userFirstName"] = person[0].FirstName;
+                    Session["userLastName"] = person[0].LastName;
                     ViewBag.texts = "";
                     return RedirectToAction("Index", "Home");
                 }
