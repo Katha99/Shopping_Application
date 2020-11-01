@@ -44,12 +44,14 @@
                         <a href="@Url.Action("DetailView", "Product", new { id = product.Id })"><p class="lead">@product.Titel</p></a>
                     </td>
                     <td>
-                        <p class="text-warning">@product.Price</p>
+                        <p class="text-warning">@product.Price €</p>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-warning disabled">
-                            <a href="@Url.Action("Buy", "Cart", new { id = product.Id })">Buy Now</a>
-                        </button>
+                        <a href="@Url.Action("Buy", "Cart", new { id = product.Id })">
+                            <button type="button" class="btn btn-warning disabled">
+                                Kaufen
+                            </button>
+                        </a>
                     </td>
                 </tr>
             }

@@ -10,18 +10,36 @@
 </head>
 <body>
     <div class="jumbotron">
-        <h2>@ViewBag.product.Titel</h2>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <img src="~/Content/Images/@ViewBag.product.Photo" width="250" />
-        </div>
-        <div class="col-md-4">
-            <div class="row">
-                <p>@ViewBag.product.Price</p>
+        <div class="row">
+            <div class="col">
+                <img src="~/Content/Images/@ViewBag.product.Photo" width="250" />
             </div>
-            <div class="row">
+            <div class="col-md-5">
+                <div class="row">
+                    <h4>@ViewBag.product.Author</h4>
+                </div>
+                <div class="row">
+                    <h3>@ViewBag.product.Titel</h3>
+                </div>
+                <div class="row">
+                    <br>
+                    <p>@ViewBag.product.Content</p>
+                </div>
+                <div class="row">
 
+                </div>
+            </div>
+            <div class="col-md-3" align="center">
+                <div class="row">
+                    <p class="text-warning" ><b>@ViewBag.product.Price €</b></p>
+                </div>
+                <div class="row">
+                    <a href="@Url.Action("Buy", "Cart", new { id = ViewBag.product.Id })">
+                        <button type="button" class="btn btn-warning disabled">
+                            Kaufen
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

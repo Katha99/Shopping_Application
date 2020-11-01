@@ -10,7 +10,6 @@ namespace Shopping_Application.Models
     public class Person
     {
         public int Id { get; set; }
-        public string Type { get; set; }
 
         [Display(Name = "Vorname")]
         [Required(ErrorMessage = "Bitte gib deinen Vornamen ein.")]
@@ -41,11 +40,4 @@ namespace Shopping_Application.Models
         public string ConfirmPassword { get; set; }
 
     }
-
-    /*public class PersonDBContext : DbContext
-    {
-        public PersonDBContext()
-        { }
-        public DbSet<Person> Persons { get; set; }
-    }*/
 }

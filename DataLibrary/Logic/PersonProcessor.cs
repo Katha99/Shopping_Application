@@ -20,10 +20,8 @@ namespace DataLibrary.Logic
                 Password = password
             };
 
-            string sql = @"insert into dbo.Products (FirstName, LastName, EmailAddress, Password)
+            string sql = @"insert into dbo.Persons (FirstName, LastName, EmailAddress, Password)
                             values (@FirstName, @LastName, @EmailAddress, @Password);";
-
-
 
             return SQLDataAccess.SaveData(sql, data);
         }

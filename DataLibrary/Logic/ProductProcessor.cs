@@ -11,7 +11,7 @@ namespace DataLibrary.Logic
 {
     public static class ProductProcessor
     {
-        public static int CreateProduct(string titel, float price, string photo, string content, string author)
+        public static int CreateProduct(string titel, decimal price, string photo, string content, string author)
         {
             Product data = new Product
             {

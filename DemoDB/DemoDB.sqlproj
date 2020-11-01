@@ -6,7 +6,7 @@
     <Name>DemoDB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{c40677ac-1657-4c09-b058-705814327e94}</ProjectGuid>
+    <ProjectGuid>{a75c7495-bd5f-4fc6-9671-bd26f9e58d18}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
@@ -57,11 +57,11 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="dbo" />
-    <Folder Include="dbo\tables" />
+    <Folder Include="dbo\Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\tables\Products.sql" />
-    <Build Include="dbo\tables\Persons.sql" />
+    <Build Include="dbo\Tables\Products.sql" />
+    <Build Include="dbo\Tables\Persons.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DemoDB.publish.xml" />
