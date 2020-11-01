@@ -1,4 +1,7 @@
-﻿using Shopping_Application.Models;
+﻿
+// A controller for interacting with products
+
+using Shopping_Application.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +15,7 @@ namespace Shopping_Application.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product
+        // GET: View on a sorted productlist
         public ActionResult Index( string typeSort = "Titel ASC" )
         {
             var data = LoadSortedProduct( typeSort );
@@ -34,6 +37,7 @@ namespace Shopping_Application.Controllers
             return View(products);
         }
 
+        // GET: View on a singel product
         public ActionResult DetailView(int id)
         {
             var data = LoadOneProduct(id);

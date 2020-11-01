@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+// A controller for interactions with the home page
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +14,7 @@ namespace Shopping_Application.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: the home page with three random recommendations
         public ActionResult Index()
         {
             var data = LoadProduct();
@@ -49,6 +53,7 @@ namespace Shopping_Application.Controllers
             return View(randProducts);
         }
 
+        // GET: the About page
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -56,16 +61,10 @@ namespace Shopping_Application.Controllers
             return View();
         }
 
+        // GET: the contact page
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public ActionResult SignUp()
-        {
-            ViewBag.Message = "The sign up page.";
 
             return View();
         }

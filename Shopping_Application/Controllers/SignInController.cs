@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+// A controller for interacting with users
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,22 +13,25 @@ namespace Shopping_Application.Views.SignIn
 {
     public class SignInController : Controller
     {
-        // GET: SignIn
+        // GET: View on page with choice to register or log in
         public ActionResult Index()
         {
             return View();
         }
 
+        // GET: View for logging in
         public ActionResult LogIn()
         {
             return View();
         }
 
+        // GET: View for registering
         public ActionResult Register()
         {
             return View();
         }
 
+        // function to log out 
         public ActionResult LogOut()
         {
             Session["userId"] = null;
@@ -34,7 +40,7 @@ namespace Shopping_Application.Views.SignIn
             return RedirectToAction("Index", "Home");
         }
 
-
+        // Sending data of the registration to the ProductProcessor
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(Person model)
@@ -52,6 +58,7 @@ namespace Shopping_Application.Views.SignIn
             return View();
         }
 
+        // Validating the data of the log in with the data we get from the PersonProcessor to log the user in
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogIn(Person model)

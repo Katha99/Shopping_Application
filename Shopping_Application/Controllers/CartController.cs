@@ -1,4 +1,7 @@
-﻿using Shopping_Application.Models;
+﻿
+// A controller for interacting with the cart
+
+using Shopping_Application.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +14,13 @@ namespace Shopping_Application.Controllers
 {
     public class CartController : Controller
     {
-        // GET: Cart
+        // GET: Index View ( view for shopping cart )
         public ActionResult Index()
         {
             return View();
         }
 
+        // function for adding a product to the cart
         public ActionResult Buy(int id)
         {
             var data = LoadOneProduct(id);
@@ -53,6 +57,7 @@ namespace Shopping_Application.Controllers
             return RedirectToAction("Index");
         }
 
+        // function for removing a product from the cart
         public ActionResult Remove(int id)
         {
             List<Item> cart = (List<Item>)Session["cart"];
@@ -62,6 +67,8 @@ namespace Shopping_Application.Controllers
             return RedirectToAction("Index");
         }
 
+        // funtion for looking through the cart to see if there already is a product with the same index
+        // if so: return the index
         private int isExist(int id)
         {
             List<Item> cart = (List<Item>)Session["cart"];

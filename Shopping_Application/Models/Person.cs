@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+// Model for the data about users
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
