@@ -14,7 +14,7 @@
     <br>
     <h2>Warenkorb</h2>
     <br>
-    @if ((List<Item>)Session["cart"] != null)
+    @if ((List<Item>)Session["cart"] != null)                       // Session["cart"] wird explizit umgewandelt in eine Liste von Items um einen Vergleich durchführen zu können
     {
         <table class="table table-hover">
             <tr class="table-dark">
@@ -30,7 +30,7 @@
             {
                 <tr class="table-light">
                     <td>
-                        <a href="@Url.Action("Remove", "Cart", new { id = item.Product.Id })">
+                        <a href="@Url.Action("Remove", "Cart", new { id = item.Product.Id })">          <!-- ein Aufruf der Funktion Remove im CartController mit Übergabe eines Parameters --> 
                             <button type="button" class="btn btn-outline-warning btn-sm">
                                 Entfernen
                             </button>
@@ -48,7 +48,7 @@
                 <td>
                     @{
                         List<Item> cart = (List<Item>)Session["cart"];
-                        var total = cart.Sum(item => item.Product.Price * item.Quantity);
+                        var total = cart.Sum(item => item.Product.Price * item.Quantity);           // ???
                     }
                     @total
                 </td>

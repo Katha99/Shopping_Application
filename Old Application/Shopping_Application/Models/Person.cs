@@ -14,7 +14,7 @@ namespace Shopping_Application.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Vorname")]
+        [Display(Name = "Vorname")]                                 // Validierungsattribut um Vaildierungsregeln festzulegen, die bei den Daten die in das Formular eingegeben wurden gelten sollen
         [Required(ErrorMessage = "Bitte gib deinen Vornamen ein.")]
         public string FirstName { get; set; }
 

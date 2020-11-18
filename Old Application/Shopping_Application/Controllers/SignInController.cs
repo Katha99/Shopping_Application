@@ -47,10 +47,10 @@ namespace Shopping_Application.Views.SignIn
         {
             ViewBag.Message = "The sign up page.";
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)                                                 // Wenn die Daten die in das Formular eingegeben wurden den Validierungsregeln im entsprechenden Model entsprechen, dann:
             {
-                int recordsCreated = CreatePerson(model.FirstName, model.LastName, model.EmailAddress, model.Password);
-                ViewBag.texts = "Du hast dich erfolgreich regestriert. Meld dich nun an.";
+                CreatePerson(model.FirstName, model.LastName, model.EmailAddress, model.Password);  // Rufe die Funktion auf und übergebe ihr die folgenden Daten
+                ViewBag.texts = "Du hast dich erfolgreich regestriert. Meld dich nun an.";  
                 return RedirectToAction("LogIn");
             }
 
