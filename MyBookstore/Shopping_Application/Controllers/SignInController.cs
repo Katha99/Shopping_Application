@@ -1,6 +1,4 @@
 ﻿
-// A controller for interacting with users
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,25 +11,21 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 {
     public class SignInController : Controller
     {
-        // GET: View on page with choice to register or log in
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: View for logging in
         public ActionResult LogIn()
         {
             return View();
         }
 
-        // GET: View for registering
         public ActionResult Register()
         {
             return View();
         }
 
-        // function to log out 
         public ActionResult LogOut()
         {
             Session["userId"] = null;
@@ -40,16 +34,15 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // Sending data of the registration to the ProductProcessor
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(Person model)
         {
             ViewBag.Message = "The sign up page.";
 
-            if (ModelState.IsValid)                                                 // Wenn die Daten die in das Formular eingegeben wurden den Validierungsregeln im entsprechenden Model entsprechen, dann:
+            if (ModelState.IsValid)                                                
             {
-                CreatePerson(model.FirstName, model.LastName, model.EmailAddress, model.Password);  // Rufe die Funktion auf und übergebe ihr die folgenden Daten
+                CreatePerson(model.FirstName, model.LastName, model.EmailAddress, model.Password);
                 ViewBag.texts = "Du hast dich erfolgreich regestriert. Meld dich nun an.";  
                 return RedirectToAction("LogIn");
             }
@@ -58,7 +51,6 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
             return View();
         }
 
-        // Validating the data of the log in with the data we get from the PersonProcessor to log the user in
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogIn(Person model)

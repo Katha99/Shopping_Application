@@ -1,6 +1,4 @@
 ﻿
-// Model for the items in the shopping cart
-
 using System;
 using System.Collections.Generic;
 using System.Linq;

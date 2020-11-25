@@ -1,6 +1,4 @@
 ﻿
-// Model for the data about the products
-
 using System;
 using System.Collections.Generic;
 using System.Linq;

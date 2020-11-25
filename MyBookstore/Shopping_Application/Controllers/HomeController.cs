@@ -1,6 +1,4 @@
 ﻿
-// A controller for interactions with the home page
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +12,16 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: the home page with three random recommendations
         public ActionResult Index()
         {
-            var data = LoadProduct();                                   // Einer var wird das Return-Ergebnis der Funktion LoadProduct des ProductProcessors zugewiesen
-            List<Product> products = new List<Product>();               // Eine Liste des Typs Product namens products wird deklariert
+            var data = LoadProduct();                                  
+            List<Product> products = new List<Product>();    
 
             int number = 0, j = 0;
             foreach (var row in data)                                   
             {
                 number++;
-                products.Add(new Product                                // der Liste products wird ein neues Product hinzugefügt mit folgenden Daten
+                products.Add(new Product         
                 {
                     Id = row.Id,
                     Titel = row.Titel,
@@ -35,38 +32,35 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
                 });
             }
 
-            Random rnd = new Random();                                  // Ein Objekt des Typs Random wird deklariert
-            List<int> randomList = new List<int>();                     // Eine Liste des Typs int namens randomList wird deklariert
-            List<Product> randProducts = new List<Product>();           // Eine Liste des Typs Product namens randProducts wird deklariert 
+            Random rnd = new Random();                          
+            List<int> randomList = new List<int>();               
+            List<Product> randProducts = new List<Product>();      
 
             for(int i = 0; i < 3; i++)                                  
             {
-                j = rnd.Next(0, number -1);                             // die Next Funktion, die durch das Objekt rnd aufgerufen wird, gibt eine nicht negative Zufallszahl zwischen dem angegebenen Bereich zurück und weist sie j zu 
-                if (!randomList.Contains(j))                            // Wenn die Liste randomList den Wert von j beinhaltet:
+                j = rnd.Next(0, number -1);                            
+                if (!randomList.Contains(j)) 
                 {
-                    randomList.Add(j);                                  // Füge der randomList den Inhalt von j hinzu
-                    randProducts.Add(products[j]);                      // Füge der randProducts Liste den Inhalt der Liste products an der j-ten Stelle hinzu
+                    randomList.Add(j);            
+                    randProducts.Add(products[j]);   
                 }
             }
             
-            ViewBag.products = randProducts;                            // Weise die randProducts Liste dem ViewBag hinzu unter dem Namen products
+            ViewBag.products = randProducts;   
             return View(randProducts);                                  
         }
 
-        // GET: the About page
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";     // Der ViewBag wird unter dem Namen Message ein String hinzugefügt
-
-            return View();                                              // gibt die HTML Seite About zurück
+            ViewBag.Message = "Your application description page.";     
+            return View();                                            
         }
 
-        // GET: the contact page
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";                     // Der ViewBag wird unter dem Namen Message ein String hinzugefügt
+            ViewBag.Message = "Your contact page.";                     
 
-            return View();                                              // gibt die HTML Seite Contact zurück
+            return View();                                    
         }
     }
 }

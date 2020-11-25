@@ -1,7 +1,4 @@
 ﻿
-// A controller for interacting with the cart
-
-//Einbindung von außenstehenden Code-Paketen
 using netzkern.MyBookstore.UI.Web.Mvc.Models;
 using System;
 using System.Collections.Generic;
@@ -11,21 +8,19 @@ using System.Web.DynamicData;
 using System.Web.Mvc;
 using static netzkern.MyBookstore.Data.EF.Logic.ProductProcessor;
 
-namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers                                  // Definition des namespaces um Konflikte mit Objekten mit demselben Namen aus anderen namespaces zu vermeiden
+namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers                                  
 {
-    public class CartController : Controller                                    // Definierung einer Klasse die von der Klasse Controller erbt
+    public class CartController : Controller                              
     {
-        // GET: Index View ( view for shopping cart )
-        public ActionResult Index()                                             // Definierung einer Funktion Index, die bei Aufruf die HTML-Seite Index zurück gibt.
+        public ActionResult Index()                                 
         {
             return View();
         }
 
-        // function for adding a product to the cart
-        public ActionResult Buy(int id)                                         // Definierung einer Funktion, die einen int Parameter übergeben bekommt
+        public ActionResult Buy(int id)                         
         {
-            var data = LoadOneProduct(id);                                      // Einer var wird das Return-Ergebnis der Funktion LoadOneProduct des ProductProcessors zugewiesen, wobei der Funktion der Parameter id übergeben wird.
-            Product product = new Product                                       // Es wird eon Objekt Produkt instanziert, welches Daten zugewiesen bekommt
+            var data = LoadOneProduct(id);   
+            Product product = new Product                                
             {
                 Id = data.First().Id,
                 Titel = data.First().Titel,
@@ -35,44 +30,41 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers                           
                 Author = data.First().Author
             };
 
-            if (Session["cart"] == null)                                        // wenn das Session-Objekt namens "cart" == 0, also leer ist:
+            if (Session["cart"] == null)
             {
-                List<Item> cart = new List<Item>();                             // erstelle eine neue Liste des Typs Item namens cart
-                cart.Add(new Item { Product = product, Quantity = 1 });         // Füge ein neues Objekt der Liste hinzu mit den genannten Daten
-                Session["cart"] = cart;                                         // Weise dem Session-Objekt namens cart die Liste zu
+                List<Item> cart = new List<Item>();
+                cart.Add(new Item { Product = product, Quantity = 1 });
+                Session["cart"] = cart;
             }
             else
             {
-                List<Item> cart = (List<Item>)Session["cart"];                  // Erstelle eine Liste des Typs Item namens cart und weise ihr den Inhalt des Objekts aus der Session namens cart zu, jedoch explizit typisiert als Liste des Obejkts Item
-                int index = isExist(id);                                        // rufe die Funktion isExist auf, übergebe ihr den Parameter id und weise den Rückgabewert der Funktion der neu deklarierten int Variable index zu.
+                List<Item> cart = (List<Item>)Session["cart"];
+                int index = isExist(id);                                       
                 if (index != -1)
                 {
-                    cart[index].Quantity++;                                     
+                    cart[index].Quantity++;
                 }
                 else
                 {
-                    cart.Add(new Item { Product = product, Quantity = 1 });     // Füge ein neues Objekt der Liste hinzu des Typs Item mit folgenden Daten
+                    cart.Add(new Item { Product = product, Quantity = 1 });   
                 }
-                Session["cart"] = cart;                                         // Weise dem Session-Objekt namens cart die Liste cart zu.
+                Session["cart"] = cart;                             
             }
-            return RedirectToAction("Index");                                   // Aufruf der Index Funktion des Cart Controllers
+            return RedirectToAction("Index");  
         }
 
-        // function for removing a product from the cart
-        public ActionResult Remove(int id)                                      // Definierung einer Funktion Remove, die einen int Parameter übergeben bekommt
+        public ActionResult Remove(int id)                                 
         {
-            List<Item> cart = (List<Item>)Session["cart"];                      // Erstelle eine Liste des Typs Item namens cart und weise ihr den Inhalt des Objekts aus der Session namens cart zu, jedoch explizit typisiert als Liste des Obejkts Item
-            int index = isExist(id);                                            // rufe die Funktion isExist auf, übergebe ihr den Parameter id und weise den Rückgabewert der Funktion der neu deklarierten int Variable index zu.
-            cart.RemoveAt(index);                                               // Entferen ein Objekt in der Liste cart an der Stelle index
-            Session["cart"] = cart;                                             // Weise dem Session-Objekt namens cart die Liste zu
-            return RedirectToAction("Index");                                   // Aufruf der Index Funktion des Cart Controllers
+            List<Item> cart = (List<Item>)Session["cart"];
+            int index = isExist(id);             
+            cart.RemoveAt(index);    
+            Session["cart"] = cart;   
+            return RedirectToAction("Index"); 
         }
 
-        // funtion for looking through the cart to see if there already is a product with the same index
-        // if so: return the index
-        private int isExist(int id)                                             // Definierung einer Funktion, die einen Parameter int übergeben bekommt
+        private int isExist(int id)              
         {
-            List<Item> cart = (List<Item>)Session["cart"];                      // Erstelle eine Liste des Typs Item namens cart und weise ihr den Inhalt des Objekts aus der Session namens cart zu, jedoch explizit typisiert als Liste des Obejkts Item
+            List<Item> cart = (List<Item>)Session["cart"];                   
             for( int i = 0; i < cart.Count; i++ )       
             {
                 if (cart[i].Product.Id == id)
