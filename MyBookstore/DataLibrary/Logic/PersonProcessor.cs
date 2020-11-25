@@ -1,12 +1,12 @@
-﻿using DataLibrary.DataAccess;
-using DataLibrary.Models;
+﻿using netzkern.MyBookstore.Data.EF.DataAccess;
+using netzkern.MyBookstore.Data.EF.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLibrary.Logic
+namespace netzkern.MyBookstore.Data.EF.Logic
 {
     public static class PersonProcessor
     {

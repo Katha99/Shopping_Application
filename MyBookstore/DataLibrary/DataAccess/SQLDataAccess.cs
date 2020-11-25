@@ -9,7 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 
-namespace DataLibrary.DataAccess
+namespace netzkern.MyBookstore.Data.EF.DataAccess
 {
     public static class SQLDataAccess
     {

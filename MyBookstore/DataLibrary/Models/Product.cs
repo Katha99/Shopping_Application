@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLibrary.Models
+namespace netzkern.MyBookstore.Data.EF.Models
 {
     public class Product
     {

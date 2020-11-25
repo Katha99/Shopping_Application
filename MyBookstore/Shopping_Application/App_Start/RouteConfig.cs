@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Shopping_Application
+namespace netzkern.MyBookstore.UI.Web.Mvc
 {
     public class RouteConfig
     {

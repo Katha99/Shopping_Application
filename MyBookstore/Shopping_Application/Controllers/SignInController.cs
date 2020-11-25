@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using static DataLibrary.Logic.PersonProcessor;
-using Shopping_Application.Models;
+using static netzkern.MyBookstore.Data.EF.Logic.PersonProcessor;
+using netzkern.MyBookstore.UI.Web.Mvc.Models;
 
-namespace Shopping_Application.Views.SignIn
+namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 {
     public class SignInController : Controller
     {

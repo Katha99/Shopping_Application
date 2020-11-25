@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Shopping_Application
+namespace netzkern.MyBookstore.UI.Web.Mvc
 {
     public class BundleConfig
     {

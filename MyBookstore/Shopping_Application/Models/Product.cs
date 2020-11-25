@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace Shopping_Application.Models
+namespace netzkern.MyBookstore.UI.Web.Mvc.Models
 {
     public class Product
     {

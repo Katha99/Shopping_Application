@@ -2,16 +2,16 @@
 // A controller for interacting with the cart
 
 //Einbindung von außenstehenden Code-Paketen
-using Shopping_Application.Models;
+using netzkern.MyBookstore.UI.Web.Mvc.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.DynamicData;
 using System.Web.Mvc;
-using static DataLibrary.Logic.ProductProcessor;
+using static netzkern.MyBookstore.Data.EF.Logic.ProductProcessor;
 
-namespace Shopping_Application.Controllers                                      // Definition des namespaces um Konflikte mit Objekten mit demselben Namen aus anderen namespaces zu vermeiden
+namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers                                  // Definition des namespaces um Konflikte mit Objekten mit demselben Namen aus anderen namespaces zu vermeiden
 {
     public class CartController : Controller                                    // Definierung einer Klasse die von der Klasse Controller erbt
     {

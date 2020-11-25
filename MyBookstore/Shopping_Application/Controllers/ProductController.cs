@@ -1,15 +1,15 @@
 ﻿
 // A controller for interacting with products
 
-using Shopping_Application.Models;
+using netzkern.MyBookstore.UI.Web.Mvc.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
-using static DataLibrary.Logic.ProductProcessor;
+using static netzkern.MyBookstore.Data.EF.Logic.ProductProcessor;
 
 
-namespace Shopping_Application.Controllers
+namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 {
     public class ProductController : Controller
     {

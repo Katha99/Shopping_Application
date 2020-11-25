@@ -1,0 +1,49 @@
+﻿
+<!--Web page for taking a look at a single product-->
+
+@using Shopping_Application.Models
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DetailView</title>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col">
+                <img src="~/Content/Images/@ViewBag.product.Photo" width="250" />
+            </div>
+            <div class="col-md-5">
+                <div class="row">
+                    <h4>@ViewBag.product.Author</h4>
+                </div>
+                <div class="row">
+                    <h3>@ViewBag.product.Titel</h3>
+                </div>
+                <div class="row">
+                    <br>
+                    <p>@ViewBag.product.Content</p>
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+            <div class="col-md-3" align="center">
+                <div class="row">
+                    <p class="text-warning" ><b>@ViewBag.product.Price €</b></p>
+                </div>
+                <div class="row">
+                    <a href="@Url.Action("Buy", "Cart", new { id = ViewBag.product.Id })">
+                        <button type="button" class="btn btn-warning disabled">
+                            Kaufen
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

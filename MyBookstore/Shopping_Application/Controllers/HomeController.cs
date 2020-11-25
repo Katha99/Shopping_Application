@@ -6,11 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Shopping_Application.Models;
-using DataLibrary;
-using static DataLibrary.Logic.ProductProcessor;
+using netzkern.MyBookstore.UI.Web.Mvc.Models;
+using netzkern.MyBookstore.Data.EF;
+using static netzkern.MyBookstore.Data.EF.Logic.ProductProcessor;
 
-namespace Shopping_Application.Controllers
+namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 {
     public class HomeController : Controller
     {
