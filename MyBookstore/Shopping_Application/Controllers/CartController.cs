@@ -1,14 +1,11 @@
 ﻿
-using netzkern.MyBookstore.UI.Web.Mvc.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.DynamicData;
 using System.Web.Mvc;
-using static netzkern.MyBookstore.Data.EF.Logic.ProductProcessor;
 
-namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers                                  
+using netzkern.MyBookstore.UI.Web.Mvc.Models;
+
+namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 {
     public class CartController : Controller                              
     {
@@ -19,7 +16,7 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 
         public ActionResult Buy(int id)                         
         {
-            var data = LoadOneProduct(id);   
+            var data = netzkern.MyBookstore.Data.EF.Logic.ProductProcessor.LoadOneProduct(id);   
             Product product = new Product                                
             {
                 Id = data.First().Id,

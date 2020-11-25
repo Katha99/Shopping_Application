@@ -1,10 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace netzkern.MyBookstore.UI.Web.Mvc.Models
+﻿namespace netzkern.MyBookstore.UI.Web.Mvc.Models
 {
     public class Item
     {

@@ -1,12 +1,9 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+
 using netzkern.MyBookstore.UI.Web.Mvc.Models;
-using netzkern.MyBookstore.Data.EF;
-using static netzkern.MyBookstore.Data.EF.Logic.ProductProcessor;
 
 namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 {
@@ -14,7 +11,7 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
     {
         public ActionResult Index()
         {
-            var data = LoadProduct();                                  
+            var data = netzkern.MyBookstore.Data.EF.Logic.ProductProcessor.LoadProduct();                                  
             List<Product> products = new List<Product>();    
 
             int number = 0, j = 0;

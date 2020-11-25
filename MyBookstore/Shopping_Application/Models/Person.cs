@@ -1,10 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace netzkern.MyBookstore.UI.Web.Mvc.Models
 {
@@ -12,7 +6,7 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Vorname")]                                 // Validierungsattribut um Vaildierungsregeln festzulegen, die bei den Daten die in das Formular eingegeben wurden gelten sollen
+        [Display(Name = "Vorname")]                                 
         [Required(ErrorMessage = "Bitte gib deinen Vornamen ein.")]
         public string FirstName { get; set; }
 

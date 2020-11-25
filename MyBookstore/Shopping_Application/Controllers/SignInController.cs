@@ -1,10 +1,7 @@
 ﻿
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using static netzkern.MyBookstore.Data.EF.Logic.PersonProcessor;
+
 using netzkern.MyBookstore.UI.Web.Mvc.Models;
 
 namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
@@ -42,7 +39,7 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 
             if (ModelState.IsValid)                                                
             {
-                CreatePerson(model.FirstName, model.LastName, model.EmailAddress, model.Password);
+                netzkern.MyBookstore.Data.EF.Logic.PersonProcessor.CreatePerson(model.FirstName, model.LastName, model.EmailAddress, model.Password);
                 ViewBag.texts = "Du hast dich erfolgreich regestriert. Meld dich nun an.";  
                 return RedirectToAction("LogIn");
             }
@@ -56,7 +53,7 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
         public ActionResult LogIn(Person model)
         {
             ViewBag.Message = "The sign up page.";
-                var data = LoadPerson( model.EmailAddress );
+                var data = netzkern.MyBookstore.Data.EF.Logic.PersonProcessor.LoadPerson( model.EmailAddress );
 
                 List<Person> person = new List<Person>();
 

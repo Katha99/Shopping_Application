@@ -1,11 +1,8 @@
-﻿using netzkern.MyBookstore.Data.EF.DataAccess;
-using netzkern.MyBookstore.Data.EF.Models;
-using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mime;
-using System.Text;
-using System.Threading.Tasks;
+
+using netzkern.MyBookstore.Data.EF.DataAccess;
+using netzkern.MyBookstore.Data.EF.Models;
 
 namespace netzkern.MyBookstore.Data.EF.Logic
 {

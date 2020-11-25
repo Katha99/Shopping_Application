@@ -1,10 +1,9 @@
 ﻿
-using netzkern.MyBookstore.UI.Web.Mvc.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
-using static netzkern.MyBookstore.Data.EF.Logic.ProductProcessor;
+using netzkern.MyBookstore.UI.Web.Mvc.Models;
 
 
 namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
@@ -13,7 +12,7 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
     {
         public ActionResult Index( string typeSort = "Titel ASC" )
         {
-            var data = LoadSortedProduct( typeSort );                   
+            var data = netzkern.MyBookstore.Data.EF.Logic.ProductProcessor.LoadSortedProduct( typeSort );                   
             List<Product> products = new List<Product>();
 
             foreach (var row in data)
@@ -34,7 +33,7 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 
         public ActionResult DetailView(int id)
         {
-            var data = LoadOneProduct(id);    
+            var data = netzkern.MyBookstore.Data.EF.Logic.ProductProcessor.LoadOneProduct(id);    
             Product product = new Product  
             {
                 Id = data.First().Id,
