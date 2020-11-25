@@ -1,0 +1,74 @@
+﻿
+<!--Web page for viewing the shopping cart-->
+
+@using Shopping_Application.Models
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cart</title>
+</head>
+<body>
+    <br>
+    <h2>Warenkorb</h2>
+    <br>
+    @if ((List<Item>)Session["cart"] != null)                       // Session["cart"] wird explizit umgewandelt in eine Liste von Items um einen Vergleich durchführen zu können
+    {
+        <table class="table table-hover">
+            <tr class="table-dark">
+                <th>Option</th>
+                <th>Titel</th>
+                <th></th>
+                <th>Preis</th>
+                <th>Anzahl</th>
+                <th>Zwischensumme</th>
+            </tr>
+
+            @foreach (Item item in (List<Item>)Session["cart"])
+            {
+                <tr class="table-light">
+                    <td>
+                        <a href="@Url.Action("Remove", "Cart", new { id = item.Product.Id })">          <!-- ein Aufruf der Funktion Remove im CartController mit Übergabe eines Parameters --> 
+                            <button type="button" class="btn btn-outline-warning btn-sm">
+                                Entfernen
+                            </button>
+                        </a>
+                    </td>
+                    <td>@item.Product.Titel</td>
+                    <td><img src="~/Content/Images/@item.Product.Photo" width="60" /></td>
+                    <td>@item.Product.Price €</td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.Product.Price * item.Quantity) €</td>
+                </tr>
+            }
+            <tr class="table-dark">
+                <td align="right" colspan="6">Summe</td>
+                <td>
+                    @{
+                        List<Item> cart = (List<Item>)Session["cart"];
+                        var total = cart.Sum(item => item.Product.Price * item.Quantity);           // ???
+                    }
+                    @total
+                </td>
+            </tr>
+        </table>
+    }
+    else
+    {
+        <div class="jumbotron">
+            <h4>Ihr Warenkorb ist zurzeit leer.</h4>
+            <a href="@Url.Action("Index", "Product")"><p class="text-warning">Stöbern Sie jetzt im Sortiment.</p></a>
+        </div>
+        
+    }
+     
+    <br>
+    <a href="@Url.Action("Index", "Product")">
+        <button type="button" class="btn btn-warning disabled">
+            Weiter einkaufen
+        </button>
+    </a>
+</body>
+</html>

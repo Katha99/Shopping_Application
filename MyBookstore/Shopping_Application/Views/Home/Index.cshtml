@@ -1,0 +1,54 @@
+﻿
+<!--the home page-->
+
+
+@{
+    ViewBag.Title = "Startseite";
+}
+
+@using Shopping_Application.Models
+
+<div class="jumbotron">
+    <p class="text-warning">Empfehlung des Tages:</p>
+    <h2>Harry Potter und der Stein der Weisen</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <p>Der junge Waise Harry Potter wächst bei seiner Tante und seinem Onkel auf, von denen er nur ausgenutzt wird. Kurz vor seinem elften Geburtstag ändert sich jedoch sein Leben, als er eine Einladung nach Hogwarts erhält, eine Schule für Hexerei und Zauberei. Dort erwarten ihn magische Geschöpfe, Zaubertrankunterricht und der Lehrer Snape, der ihn nicht zu mögen scheint. In seinen Mitschülern Ron und Hermine findet Harry Freunde. Und bald bekommt er es mit dem bösesten aller Zauberer zu tun.</p>
+            <a href="@Url.Action("DetailView", "Product", new { id = 10 })">
+                <button type="button" class="btn btn-outline-warning">Erfahre mehr &raquo;</button>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="@Url.Action("DetailView", "Product", new { id = 10 })">
+                <img src="~/Content/Images/05.jpeg" width="200" />
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <br>
+    <h2>Weitere Empfehlungen</h2>
+</div>
+<div class="row">
+    @foreach (Product product in ViewBag.products)
+    {
+        <div class="card border-light mb-3" style="max-width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title">@product.Titel</h5>
+                <a href="@Url.Action("DetailView", "Product", new { id = product.Id })">
+                    <img src="~/Content/Images/@product.Photo" width="100" />
+                </a>
+            </div>
+            <div>
+                <a href="@Url.Action("DetailView", "Product", new { id = product.Id })">
+                    <button type="button" class="btn btn-outline-warning btn-sm">
+                        Erfahre mehr &raquo;
+                    </button>
+                </a>
+            </div>
+        </div>
+    }
+
+
+</div>

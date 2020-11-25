@@ -1,0 +1,64 @@
+﻿
+
+<!--Web page for taking a look at the list of products-->
+
+@using Shopping_Application.Models
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="col">
+        <table class="table table-hover">
+            <tr class="table-light">
+                <td>
+                    <h2>Products List</h2>
+                </td>
+                <td>
+                    <div class="nav-item dropdown show">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sortieren nach</a>
+                        <div class="dropdown-menu show" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = "Titel ASC" })">Titel A-Z</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = "Titel DESC" })">Titel Z-A</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = "Price ASC" })">Preis: aufsteigend</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Product", new { typeSort = "Price DESC" })">Preis: absteigend</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+        </table>
+        
+    </div>
+    <div class="col">
+        <table class="table table-hover">
+            @foreach (Product product in ViewBag.products)
+            {
+                <tr class="table-light">
+                    <td>
+                        <a href="@Url.Action("DetailView", "Product", new { id = product.Id })"><img src="~/Content/Images/@product.Photo" width="75" /></a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("DetailView", "Product", new { id = product.Id })"><p class="lead">@product.Titel</p></a>
+                    </td>
+                    <td>
+                        <p class="text-warning">@product.Price €</p>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Buy", "Cart", new { id = product.Id })">
+                            <button type="button" class="btn btn-warning disabled">
+                                Kaufen
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+</div>
+</body>
+</html>
+
