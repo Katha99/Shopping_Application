@@ -7,8 +7,8 @@
     <ProjectGuid>{06646184-2B7C-4CBA-8F48-2836EC31C32D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataLibrary</RootNamespace>
-    <AssemblyName>DataLibrary</AssemblyName>
+    <RootNamespace>netzkern.MyBookstore.Data.EF</RootNamespace>
+    <AssemblyName>netzkern.MyBookstore.Data.EF</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.UI.Web.Mvc", "Shopping_Application\netzkern.MyBookstore.UI.Web.Mvc.csproj", "{E95FE9D1-E58F-469A-99FF-7471DCFA4066}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.UI.Web.Mvc", "netzkern.MyBookstore.UI.Web.Mvc\netzkern.MyBookstore.UI.Web.Mvc.csproj", "{E95FE9D1-E58F-469A-99FF-7471DCFA4066}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.Data.EF", "DataLibrary\netzkern.MyBookstore.Data.EF.csproj", "{06646184-2B7C-4CBA-8F48-2836EC31C32D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.Data.EF", "netzkern.MyBookstore.Data.EF\netzkern.MyBookstore.Data.EF.csproj", "{06646184-2B7C-4CBA-8F48-2836EC31C32D}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DemoDB", "DemoDB\DemoDB.sqlproj", "{A75C7495-BD5F-4FC6-9671-BD26F9E58D18}"
 EndProject
