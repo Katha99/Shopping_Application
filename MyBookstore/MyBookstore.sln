@@ -11,6 +11,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DemoDB", "DemoDB\DemoDB.sql
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.BusinessLogic", "netzkern.MyBookstore.BusinessLogic\netzkern.MyBookstore.BusinessLogic.csproj", "{C621A988-101C-4347-B320-6FF1F180C959}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.Model", "netzkern.MyBookstore.Model\netzkern.MyBookstore.Model.csproj", "{1F63F3C0-1725-47E5-AFD8-72C0FA3914F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{C621A988-101C-4347-B320-6FF1F180C959}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C621A988-101C-4347-B320-6FF1F180C959}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C621A988-101C-4347-B320-6FF1F180C959}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F63F3C0-1725-47E5-AFD8-72C0FA3914F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F63F3C0-1725-47E5-AFD8-72C0FA3914F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F63F3C0-1725-47E5-AFD8-72C0FA3914F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F63F3C0-1725-47E5-AFD8-72C0FA3914F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
