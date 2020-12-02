@@ -59,13 +59,9 @@
     <Compile Include="EfContext.cs" />
     <Compile Include="Logic\PersonProcessor.cs" />
     <Compile Include="Logic\ProductProcessor.cs" />
-    <Compile Include="Migrations\202012011430407_InitialMigration.cs" />
-    <Compile Include="Migrations\202012011430407_InitialMigration.designer.cs">
-      <DependentUpon>202012011430407_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012020834320_AddNumberOfPages.cs" />
-    <Compile Include="Migrations\202012020834320_AddNumberOfPages.designer.cs">
-      <DependentUpon>202012020834320_AddNumberOfPages.cs</DependentUpon>
+    <Compile Include="Migrations\202012021351448_Initial.cs" />
+    <Compile Include="Migrations\202012021351448_Initial.designer.cs">
+      <DependentUpon>202012021351448_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Person.cs" />
@@ -83,11 +79,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012011430407_InitialMigration.resx">
-      <DependentUpon>202012011430407_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012020834320_AddNumberOfPages.resx">
-      <DependentUpon>202012020834320_AddNumberOfPages.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012021351448_Initial.resx">
+      <DependentUpon>202012021351448_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
