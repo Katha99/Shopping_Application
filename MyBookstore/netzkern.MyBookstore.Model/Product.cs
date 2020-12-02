@@ -12,6 +12,7 @@ namespace netzkern.MyBookstore.Model
         public decimal Price { get; set; }
         public string Photo { get; set; }
         public string Content { get; set; }
+        public int NumberOfPages { get; set; }
         public virtual Author Author{ get; set; }
     }
 }
