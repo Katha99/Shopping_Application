@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 using netzkern.MyBookstore.Model;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -19,6 +20,7 @@ namespace netzkern.MyBookstore.Data.EF
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Entity<Product>().HasKey(x => x.Id);
             modelBuilder.Entity<Product>().Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
