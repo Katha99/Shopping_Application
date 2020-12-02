@@ -14,6 +14,11 @@ namespace netzkern.MyBookstore.Data.EF
 {
     public class EfContext : DbContext
     {
+        public EfContext() : base("name=MyBookstoreConnectionString")
+        {
+
+        }
+
         public DbSet<Product> Products { get; set; }
         public DbSet<Author> Authors { get; set; }
         #region "function"
