@@ -10,5 +10,6 @@ namespace netzkern.MyBookstore.Model
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }
