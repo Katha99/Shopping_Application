@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.Busine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.Model", "netzkern.MyBookstore.Model\netzkern.MyBookstore.Model.csproj", "{1F63F3C0-1725-47E5-AFD8-72C0FA3914F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.Data.EF.Test", "netzkern.MyBookstore.Data.EF.Test\netzkern.MyBookstore.Data.EF.Test.csproj", "{19A297E3-639C-4607-B47B-643F39A1E037}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{1F63F3C0-1725-47E5-AFD8-72C0FA3914F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F63F3C0-1725-47E5-AFD8-72C0FA3914F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F63F3C0-1725-47E5-AFD8-72C0FA3914F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19A297E3-639C-4607-B47B-643F39A1E037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A297E3-639C-4607-B47B-643F39A1E037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A297E3-639C-4607-B47B-643F39A1E037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A297E3-639C-4607-B47B-643F39A1E037}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
