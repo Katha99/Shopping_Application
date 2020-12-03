@@ -66,6 +66,12 @@ namespace netzkern.MyBookstore.Data.EF
                 .Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
+            modelBuilder.Entity<Order>()
+                .HasRequired<PersonAccount>(x => x.PersonAccountRef)
+                .WithMany(y => y.Orders)
+                .HasForeignKey<int>(x => x.PersonAccountId);
+            #endregion
+
             #region PersonAccount
             modelBuilder.Entity<PersonAccount>()
                 .HasKey(x => x.Id);
