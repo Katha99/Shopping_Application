@@ -16,6 +16,8 @@ namespace netzkern.MyBookstore.Data.EF
         public DbSet<Product> Products { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<PersonAccount> PersonAccounts { get; set; }
+
 
         #region "function"
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -50,6 +52,7 @@ namespace netzkern.MyBookstore.Data.EF
             #region Author
             modelBuilder.Entity<Author>()
                 .HasKey(x => x.Id);
+
             modelBuilder.Entity<Author>()
                 .Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
