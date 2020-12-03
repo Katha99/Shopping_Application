@@ -58,6 +58,14 @@ namespace netzkern.MyBookstore.Data.EF
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             #endregion
 
+            #region PersonAccount
+            modelBuilder.Entity<PersonAccount>()
+                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<PersonAccount>()
+                .Property(x => x.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            #endregion
         }
         #endregion
 
