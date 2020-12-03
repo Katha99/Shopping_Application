@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -37,12 +37,41 @@
                 .ForeignKey("dbo.Author", t => t.AuthorId)
                 .Index(t => t.AuthorId);
             
+            CreateTable(
+                "dbo.Order",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Created = c.DateTime(nullable: false),
+                        Modified = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.OrderProduct",
+                c => new
+                    {
+                        ProductRefId = c.Int(nullable: false),
+                        OrderRefId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.ProductRefId, t.OrderRefId })
+                .ForeignKey("dbo.Product", t => t.ProductRefId, cascadeDelete: true)
+                .ForeignKey("dbo.Order", t => t.OrderRefId, cascadeDelete: true)
+                .Index(t => t.ProductRefId)
+                .Index(t => t.OrderRefId);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.OrderProduct", "OrderRefId", "dbo.Order");
+            DropForeignKey("dbo.OrderProduct", "ProductRefId", "dbo.Product");
             DropForeignKey("dbo.Product", "AuthorId", "dbo.Author");
+            DropIndex("dbo.OrderProduct", new[] { "OrderRefId" });
+            DropIndex("dbo.OrderProduct", new[] { "ProductRefId" });
             DropIndex("dbo.Product", new[] { "AuthorId" });
+            DropTable("dbo.OrderProduct");
+            DropTable("dbo.Order");
             DropTable("dbo.Product");
             DropTable("dbo.Author");
         }
