@@ -63,6 +63,18 @@
     <Compile Include="Migrations\202012030856168_InitialCreate.designer.cs">
       <DependentUpon>202012030856168_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012030914154_AddPersonAccount.cs" />
+    <Compile Include="Migrations\202012030914154_AddPersonAccount.designer.cs">
+      <DependentUpon>202012030914154_AddPersonAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012030941531_AddCreationForPersonAccountsInEfContext.cs" />
+    <Compile Include="Migrations\202012030941531_AddCreationForPersonAccountsInEfContext.designer.cs">
+      <DependentUpon>202012030941531_AddCreationForPersonAccountsInEfContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012030945204_PrimaryKeyDefinedForOrderAndPersonAccount.cs" />
+    <Compile Include="Migrations\202012030945204_PrimaryKeyDefinedForOrderAndPersonAccount.designer.cs">
+      <DependentUpon>202012030945204_PrimaryKeyDefinedForOrderAndPersonAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs" />
@@ -81,6 +93,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202012030856168_InitialCreate.resx">
       <DependentUpon>202012030856168_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012030914154_AddPersonAccount.resx">
+      <DependentUpon>202012030914154_AddPersonAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012030941531_AddCreationForPersonAccountsInEfContext.resx">
+      <DependentUpon>202012030941531_AddCreationForPersonAccountsInEfContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012030945204_PrimaryKeyDefinedForOrderAndPersonAccount.resx">
+      <DependentUpon>202012030945204_PrimaryKeyDefinedForOrderAndPersonAccount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
