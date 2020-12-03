@@ -13,7 +13,10 @@ namespace netzkern.MyBookstore.Model
         public string Photo { get; set; }
         public string Content { get; set; }
         public int NumberOfPages { get; set; }
+
         public virtual Author Author{ get; set; }
         public int? AuthorId { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
