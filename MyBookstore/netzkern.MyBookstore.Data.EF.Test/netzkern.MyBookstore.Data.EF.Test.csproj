@@ -74,6 +74,10 @@
       <Project>{06646184-2b7c-4cba-8f48-2836ec31c32d}</Project>
       <Name>netzkern.MyBookstore.Data.EF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\netzkern.MyBookstore.Model\netzkern.MyBookstore.Model.csproj">
+      <Project>{1f63f3c0-1725-47e5-afd8-72c0fa3914f9}</Project>
+      <Name>netzkern.MyBookstore.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
