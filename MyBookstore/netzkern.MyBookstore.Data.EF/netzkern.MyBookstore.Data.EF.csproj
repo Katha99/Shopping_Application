@@ -75,6 +75,10 @@
     <Compile Include="Migrations\202012030945204_PrimaryKeyDefinedForOrderAndPersonAccount.designer.cs">
       <DependentUpon>202012030945204_PrimaryKeyDefinedForOrderAndPersonAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012080755172_PersonAccountEditedToAddress.cs" />
+    <Compile Include="Migrations\202012080755172_PersonAccountEditedToAddress.designer.cs">
+      <DependentUpon>202012080755172_PersonAccountEditedToAddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs" />
@@ -102,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012030945204_PrimaryKeyDefinedForOrderAndPersonAccount.resx">
       <DependentUpon>202012030945204_PrimaryKeyDefinedForOrderAndPersonAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012080755172_PersonAccountEditedToAddress.resx">
+      <DependentUpon>202012080755172_PersonAccountEditedToAddress.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
