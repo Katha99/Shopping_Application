@@ -31,7 +31,7 @@ namespace netzkern.MyBookstore.Data.EF.Test
         }
 
         [TestMethod]
-        public void EfContext_Crud_Author()
+        public void EfContext_Crud()
         {
             #region Author Test
             // Arrange
@@ -78,6 +78,57 @@ namespace netzkern.MyBookstore.Data.EF.Test
                 // Check Delete
                 Author loadedAuthor = efContext.Authors.Find(author.Id);
                 Assert.IsNull(loadedAuthor);
+            }
+            #endregion
+
+            #region Product Test
+            // Arrange
+            Product product = new Product()
+            {
+                Title = $"Ein Titel_{Guid.NewGuid()}",
+                Price = 3.99m,
+                Photo = "01.jpg",
+                Content = "Eine Zusammenfassung eines Buches",
+                NumberOfPages = 200
+            };
+
+            string newTitle = $"Ein Titel_{Guid.NewGuid()}";
+
+            // Act
+            using (EfContext efContext = new EfContext())
+            {
+                // Insert
+                efContext.Products.Add(product);
+                efContext.SaveChanges();
+            }
+
+            using (EfContext efContext = new EfContext())
+            {
+                // Read ( Inserted )
+                Product loadedProduct = efContext.Products.Find(product.Id);
+                Assert.AreEqual(product.Title, loadedProduct.Title);
+
+                // Update
+                loadedProduct.Title = newTitle;
+                efContext.SaveChanges();
+            }
+
+            using (EfContext efContext = new EfContext())
+            {
+                // Read Update
+                Product loadedProduct = efContext.Products.Find(product.Id);
+                Assert.AreEqual(loadedProduct.Title, newTitle);
+
+                // Delete
+                efContext.Products.Remove(loadedProduct);
+                efContext.SaveChanges();
+            }
+
+            using (EfContext efContext = new EfContext())
+            {
+                // Check Delete
+                Product loadedProduct = efContext.Products.Find(product.Id);
+                Assert.IsNull(loadedProduct);
             }
             #endregion
         }
