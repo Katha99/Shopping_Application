@@ -16,7 +16,7 @@ namespace netzkern.MyBookstore.Data.EF
         public DbSet<Product> Products { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<PersonAccount> PersonAccounts { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
 
         #region "function"
@@ -67,16 +67,16 @@ namespace netzkern.MyBookstore.Data.EF
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             modelBuilder.Entity<Order>()
-                .HasRequired<PersonAccount>(x => x.PersonAccountRef)
+                .HasRequired<Address>(x => x.AddressRef)
                 .WithMany(y => y.Orders)
-                .HasForeignKey<int>(x => x.PersonAccountId);
+                .HasForeignKey<int>(x => x.AddressId);
             #endregion
 
-            #region PersonAccount
-            modelBuilder.Entity<PersonAccount>()
+            #region Address
+            modelBuilder.Entity<Address>()
                 .HasKey(x => x.Id);
 
-            modelBuilder.Entity<PersonAccount>()
+            modelBuilder.Entity<Address>()
                 .Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             #endregion
