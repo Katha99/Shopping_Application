@@ -54,22 +54,22 @@ namespace netzkern.MyBookstore.Data.EF.Test
             using (EfContext efContext = new EfContext())
             {
                 // Read ( Inserted )
-                Author loadedAuthors = efContext.Authors.Find(author.Id);
-                Assert.AreEqual(author.Firstname, loadedAuthors.Firstname);
+                Author loadedAuthor = efContext.Authors.Find(author.Id);
+                Assert.AreEqual(author.Firstname, loadedAuthor.Firstname);
 
                 // Update
-                loadedAuthors.Firstname = newFirstname;
+                loadedAuthor.Firstname = newFirstname;
                 efContext.SaveChanges();
             }
 
             using (EfContext efContext = new EfContext())
             {
                 // Read Update
-                Author loadedAuthors = efContext.Authors.Find(author.Id);
-                Assert.AreEqual(loadedAuthors.Firstname, newFirstname);
+                Author loadedAuthor = efContext.Authors.Find(author.Id);
+                Assert.AreEqual(loadedAuthor.Firstname, newFirstname);
 
                 // Delete
-                efContext.Authors.Remove(loadedAuthors);
+                efContext.Authors.Remove(loadedAuthor);
                 efContext.SaveChanges();
             }
 
