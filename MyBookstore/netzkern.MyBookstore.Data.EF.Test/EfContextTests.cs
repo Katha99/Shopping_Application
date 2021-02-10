@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+using System.IO;
 
 using netzkern.MyBookstore.Data.EF;
 using netzkern.MyBookstore.Model;
@@ -31,9 +34,8 @@ namespace netzkern.MyBookstore.Data.EF.Test
         }
 
         [TestMethod]
-        public void EfContext_Crud()
+        public void EfContext_Crud_Author()
         {
-            #region Author Test
             // Arrange
             Author author = new Author()
             {
@@ -79,9 +81,10 @@ namespace netzkern.MyBookstore.Data.EF.Test
                 Author loadedAuthor = efContext.Authors.Find(author.Id);
                 Assert.IsNull(loadedAuthor);
             }
-            #endregion
-
-            #region Product Test
+        }
+        [TestMethod]
+        public void EfContext_Crud_Product()
+        {
             // Arrange
             Product product = new Product()
             {
@@ -130,7 +133,6 @@ namespace netzkern.MyBookstore.Data.EF.Test
                 Product loadedProduct = efContext.Products.Find(product.Id);
                 Assert.IsNull(loadedProduct);
             }
-            #endregion
         }
     }
 }
