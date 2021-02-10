@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="netzkern.MyBookstore.UI.Web.Mvc" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="netzkern.MyBookstore.UI.Web.Mvc.MvcApplication" Language="C#" %>
