@@ -2,8 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-
-using netzkern.MyBookstore.UI.Web.Mvc.Models;
+using netzkern.MyBookstore.BusinessLogic;
 
 namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 {
@@ -11,27 +10,15 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
     {
         public ActionResult Index()
         {
-            var data = netzkern.MyBookstore.Data.EF.Logic.ProductProcessor.LoadProduct();                                  
-            List<Product> products = new List<Product>();    
+            ProductLogic productLogic = new ProductLogic();                                  
+            List<netzkern.MyBookstore.Model.Product> products = new List<netzkern.MyBookstore.Model.Product>();
+
+            products = productLogic.LoadProducts();
 
             int number = 0, j = 0;
-            foreach (var row in data)                                   
-            {
-                number++;
-                products.Add(new Product         
-                {
-                    Id = row.Id,
-                    Titel = row.Titel,
-                    Price = row.Price,
-                    Photo = row.Photo,
-                    Content = row.Content,
-                    Author = row.Author
-                });
-            }
-
             Random rnd = new Random();                          
             List<int> randomList = new List<int>();               
-            List<Product> randProducts = new List<Product>();      
+            List<netzkern.MyBookstore.Model.Product> randProducts = new List<netzkern.MyBookstore.Model.Product>();      
 
             for(int i = 0; i < 3; i++)                                  
             {

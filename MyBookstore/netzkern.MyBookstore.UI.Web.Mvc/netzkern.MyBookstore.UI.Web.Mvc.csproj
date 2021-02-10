@@ -189,6 +189,7 @@
     <Content Include="Views\SignIn\Register.cshtml" />
     <Content Include="Views\SignIn\Index.cshtml" />
     <Content Include="Views\SignIn\LogIn.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -207,14 +208,25 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\netzkern.MyBookstore.BusinessLogic\netzkern.MyBookstore.BusinessLogic.csproj">
+      <Project>{c621a988-101c-4347-b320-6ff1f180c959}</Project>
+      <Name>netzkern.MyBookstore.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\netzkern.MyBookstore.Data.EF\netzkern.MyBookstore.Data.EF.csproj">
       <Project>{06646184-2b7c-4cba-8f48-2836ec31c32d}</Project>
       <Name>netzkern.MyBookstore.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\netzkern.MyBookstore.Model\netzkern.MyBookstore.Model.csproj">
+      <Project>{1F63F3C0-1725-47E5-AFD8-72C0FA3914F9}</Project>
+      <Name>netzkern.MyBookstore.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
@@ -236,6 +248,9 @@
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:50044/" workingDir="" />
+          </servers>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
