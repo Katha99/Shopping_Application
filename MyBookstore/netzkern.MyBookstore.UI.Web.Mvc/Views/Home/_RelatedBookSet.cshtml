@@ -1,0 +1,22 @@
+﻿
+@using netzkern.MyBookstore.Model
+@model IEnumerable<Product>
+
+    @foreach (Product product in Model)
+    {
+        <div class="card border-light mb-3" style="max-width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title">@product.Title</h5>
+                <a href="@Url.Action("DetailView", "Product", new { id = product.Id })">
+                    <img src="~/Content/Images/@product.Photo" width="100" />
+                </a>
+            </div>
+            <div>
+                <a href="@Url.Action("DetailView", "Product", new { id = product.Id })">
+                    <button type="button" class="btn btn-outline-warning btn-sm">
+                        Erfahre mehr &raquo;
+                    </button>
+                </a>
+            </div>
+        </div>
+    }
