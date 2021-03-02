@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.Model"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.Data.EF.Test", "netzkern.MyBookstore.Data.EF.Test\netzkern.MyBookstore.Data.EF.Test.csproj", "{19A297E3-639C-4607-B47B-643F39A1E037}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.UI.Konsole", "netzkern.MyBookstore.UI.Konsole\netzkern.MyBookstore.UI.Konsole.csproj", "{1B8C4C28-DE7D-4786-973C-6B48435968F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
