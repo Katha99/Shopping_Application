@@ -16,17 +16,21 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
             _productService = new ProductService();
         }
 
+        public ActionResult Index()
+        {                              
+            List<Product> products = new List<Product>();
+            HomeViewModel model = new HomeViewModel()
             {
-                j = rnd.Next(0, number -1);                            
-                if (!randomList.Contains(j)) 
-                {
-                    randomList.Add(j);            
-                    randProducts.Add(products[j]);   
-                }
-            }
+                RelatedBookSet = new List<Product>()
+            };
+            new 
             
-            ViewBag.products = randProducts;   
-            return View(randProducts);                                  
+            products = this._productService.LoadRelatedProducts(3);
+            model.RelatedBookSet = products;
+
+            model.BestsellerBook = this._productService.LoadOneProduct(1009);
+
+            return View(model);                                  
         }
 
         public ActionResult About()
