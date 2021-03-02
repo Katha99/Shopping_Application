@@ -3,24 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using netzkern.MyBookstore.BusinessLogic;
+using netzkern.MyBookstore.Model;
+using netzkern.MyBookstore.UI.Web.Mvc.ViewModels;
 
 namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        ProductService _productService;
+        public HomeController()
         {
-            ProductLogic productLogic = new ProductLogic();                                  
-            List<netzkern.MyBookstore.Model.Product> products = new List<netzkern.MyBookstore.Model.Product>();
+            _productService = new ProductService();
+        }
 
-            products = productLogic.LoadProducts();
-
-            int number = 0, j = 0;
-            Random rnd = new Random();                          
-            List<int> randomList = new List<int>();               
-            List<netzkern.MyBookstore.Model.Product> randProducts = new List<netzkern.MyBookstore.Model.Product>();      
-
-            for(int i = 0; i < 3; i++)                                  
             {
                 j = rnd.Next(0, number -1);                            
                 if (!randomList.Contains(j)) 

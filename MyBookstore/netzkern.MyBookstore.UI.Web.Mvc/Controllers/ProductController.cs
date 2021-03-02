@@ -11,7 +11,7 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
     {
         public ActionResult Index( string typeSort = "Titel ASC" )
         {
-            ProductLogic productLogic = new ProductLogic();
+            ProductService productLogic = new ProductService();
             List<netzkern.MyBookstore.Model.Product> products = new List<netzkern.MyBookstore.Model.Product>();
 
             products = productLogic.LoadSortedProducts(typeSort);
@@ -22,7 +22,7 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 
         public ActionResult DetailView(int id)
         {
-            ProductLogic productLogic = new ProductLogic();
+            ProductService productLogic = new ProductService();
             netzkern.MyBookstore.Model.Product product = new netzkern.MyBookstore.Model.Product();
 
             product = productLogic.LoadOneProduct(id);

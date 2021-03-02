@@ -39,7 +39,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ProductLogic.cs" />
+    <Compile Include="ProductService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\netzkern.MyBookstore.Data.EF\netzkern.MyBookstore.Data.EF.csproj">
