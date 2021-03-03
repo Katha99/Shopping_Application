@@ -19,6 +19,9 @@ namespace netzkern.MyBookstore.BusinessLogic
 
         public List<Product> LoadRelatedProducts( int count )
         {
+            if (count < 1)
+                throw new ArgumentException();
+
             return _GetCountXRandomProducts(count);
         }
 

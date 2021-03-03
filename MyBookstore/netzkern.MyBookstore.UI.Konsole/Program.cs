@@ -13,11 +13,11 @@ namespace netzkern.MyBookstore.UI.Konsole
         static void Main(string[] args)
         {
             ProductService productService = new ProductService();
-            
+
             Console.WriteLine("Test Fuction productService.LoadRelatedProducts(5)");
             List<Product> productList = productService.LoadRelatedProducts(5);
-            
-            foreach(var product in productList)
+
+            foreach (var product in productList)
             {
                 Console.WriteLine("Produkt Titel: " + product.Title);
                 Console.WriteLine("Produkt ID: " + product.Id);
@@ -37,7 +37,14 @@ namespace netzkern.MyBookstore.UI.Konsole
 
             Console.WriteLine("");
             Console.WriteLine("Test Fuction productService.LoadRelatedProducts(0)");
-            productList = productService.LoadRelatedProducts(0);
+            try
+            {
+                productList = productService.LoadRelatedProducts(0);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             foreach (var product in productList)
             {
