@@ -1,5 +1,5 @@
 ﻿
-@using netzkern.MyBookstore.UI.Web.Mvc.Models
+@using netzkern.MyBookstore.Model
 
 <!DOCTYPE html>
 
@@ -12,7 +12,7 @@
     <br>
     <h2>Warenkorb</h2>
     <br>
-    @if ((List<Item>)Session["cart"] != null)                    
+    @if ((List<CartItem>)Session["cart"] != null)                    
     {
         <table class="table table-hover">
             <tr class="table-dark">
@@ -24,7 +24,7 @@
                 <th>Zwischensumme</th>
             </tr>
 
-            @foreach (Item item in (List<Item>)Session["cart"])
+            @foreach (CartItem item in (List<CartItem>)Session["cart"])
             {
                 <tr class="table-light">
                     <td>
@@ -34,7 +34,7 @@
                             </button>
                         </a>
                     </td>
-                    <td>@item.Product.Titel</td>
+                    <td>@item.Product.Title</td>
                     <td><img src="~/Content/Images/@item.Product.Photo" width="60" /></td>
                     <td>@item.Product.Price €</td>
                     <td>@item.Quantity</td>
@@ -45,7 +45,7 @@
                 <td align="right" colspan="6">Summe</td>
                 <td>
                     @{
-                        List<Item> cart = (List<Item>)Session["cart"];
+                        List<CartItem> cart = (List<CartItem>)Session["cart"];
                         var total = cart.Sum(item => item.Product.Price * item.Quantity);      
                     }
                     @total

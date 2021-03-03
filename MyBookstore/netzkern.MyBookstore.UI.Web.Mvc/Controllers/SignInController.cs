@@ -1,13 +1,20 @@
 ﻿
 using System.Collections.Generic;
 using System.Web.Mvc;
-
-using netzkern.MyBookstore.UI.Web.Mvc.Models;
+using netzkern.MyBookstore.BusinessLogic;
+using netzkern.MyBookstore.Model;
 
 namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 {
     public class SignInController : Controller
     {
+        UserService _userService;
+
+        public SignInController()
+        {
+            _userService = new UserService();
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -28,19 +35,19 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
             Session["userId"] = null;
             Session["userFirstName"] = null;
             Session["userLastName"] = null;
+
             return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(Person model)
+        public ActionResult Register(User model)
         {
-            ViewBag.Message = "The sign up page.";
-
-            if (ModelState.IsValid)                                                
+            if (ModelState.IsValid)
             {
-                netzkern.MyBookstore.Data.EF.Logic.PersonProcessor.CreatePerson(model.FirstName, model.LastName, model.EmailAddress, model.Password);
-                ViewBag.texts = "Du hast dich erfolgreich regestriert. Meld dich nun an.";  
+                _userService.CreateUser(model);
+
+                ViewBag.texts = "Du hast dich erfolgreich regestriert. Meld dich nun an.";
                 return RedirectToAction("LogIn");
             }
 
@@ -50,38 +57,23 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LogIn(Person model)
+        public ActionResult LogIn(User model)
         {
-            ViewBag.Message = "The sign up page.";
-                var data = netzkern.MyBookstore.Data.EF.Logic.PersonProcessor.LoadPerson( model.EmailAddress );
+            var user = _userService.LoadUser(model.EmailAddress);
 
-                List<Person> person = new List<Person>();
-
-                foreach (var row in data)
-                {
-                    person.Add(new Person
-                    {
-                        Id = row.Id,
-                        FirstName = row.FirstName,
-                        LastName = row.LastName,
-                        EmailAddress = row.EmailAddress,
-                        Password = row.Password
-                    });
-                }
-
-                if(model.EmailAddress == person[0].EmailAddress && model.Password == person[0].Password)
-                {
-                    Session["userId"] = person[0].Id;
-                    Session["userFirstName"] = person[0].FirstName;
-                    Session["userLastName"] = person[0].LastName;
-                    ViewBag.texts = "";
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ViewBag.texts = "Email Addresse oder Passwort stimmen nicht. Bitte versuche es normal.";
-                    return View();
-                }
+            if (model.EmailAddress == user.EmailAddress && user.Password == user.Password)
+            {
+                Session["userId"] = user.Id;
+                Session["userFirstName"] = user.FirstName;
+                Session["userLastName"] = user.LastName;
+                ViewBag.texts = "";
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.texts = "Email Addresse oder Passwort stimmen nicht. Bitte versuche es normal.";
+                return View();
+            }
         }
     }
 }
