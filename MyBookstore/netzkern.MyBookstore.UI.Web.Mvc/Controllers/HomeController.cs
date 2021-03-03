@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using netzkern.MyBookstore.BusinessLogic;
 using netzkern.MyBookstore.Model;
 using netzkern.MyBookstore.UI.Web.Mvc.ViewModels;
+using AutoMapper;
 
 namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
 {
@@ -17,33 +18,38 @@ namespace netzkern.MyBookstore.UI.Web.Mvc.Controllers
         }
 
         public ActionResult Index()
-        {                              
-            List<Product> products = new List<Product>();
+        {
             HomeViewModel model = new HomeViewModel()
             {
                 RelatedBookSet = new List<Product>()
             };
-            new 
-            
-            products = this._productService.LoadRelatedProducts(3);
-            model.RelatedBookSet = products;
 
-            model.BestsellerBook = this._productService.LoadOneProduct(1009);
+            var products = this._productService.LoadRelatedProducts(3);
+            var bestsellerBook = this._productService.LoadOneProduct(1009);
 
-            return View(model);                                  
+            if (products != null)
+            {
+                model = Mapper.Map<IEnumerable<Product>, HomeViewModel>(products);
+            }
+            if (bestsellerBook != null)
+            {
+                Mapper.Map(bestsellerBook, model);
+            }
+
+            return View(model);
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";     
-            return View();                                            
+            ViewBag.Message = "Your application description page.";
+            return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";                     
+            ViewBag.Message = "Your contact page.";
 
-            return View();                                    
+            return View();
         }
     }
 }
