@@ -83,6 +83,10 @@
     <Compile Include="Migrations\202012080757077_RenamedFile.designer.cs">
       <DependentUpon>202012080757077_RenamedFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103030757034_AddUserTable.cs" />
+    <Compile Include="Migrations\202103030757034_AddUserTable.designer.cs">
+      <DependentUpon>202103030757034_AddUserTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs" />
@@ -116,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012080757077_RenamedFile.resx">
       <DependentUpon>202012080757077_RenamedFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103030757034_AddUserTable.resx">
+      <DependentUpon>202103030757034_AddUserTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
