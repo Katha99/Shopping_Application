@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.UI.Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.Data.EF", "netzkern.MyBookstore.Data.EF\netzkern.MyBookstore.Data.EF.csproj", "{06646184-2B7C-4CBA-8F48-2836EC31C32D}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DemoDB", "DemoDB\DemoDB.sqlproj", "{A75C7495-BD5F-4FC6-9671-BD26F9E58D18}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.BusinessLogic", "netzkern.MyBookstore.BusinessLogic\netzkern.MyBookstore.BusinessLogic.csproj", "{C621A988-101C-4347-B320-6FF1F180C959}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netzkern.MyBookstore.Model", "netzkern.MyBookstore.Model\netzkern.MyBookstore.Model.csproj", "{1F63F3C0-1725-47E5-AFD8-72C0FA3914F9}"
